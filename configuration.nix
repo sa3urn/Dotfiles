@@ -714,7 +714,7 @@
       }
       #window{
         background-color: #f2cdcd;
-      }border: none;
+        border: none;
         border-radius: 0;
         min-height: 0;
         font-family: JetBrainsMono Nerd Font;
