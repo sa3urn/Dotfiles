@@ -8,6 +8,7 @@
     programs.vscode.userSettings = {
       "workbench.colorTheme" = "Catppuccin Mocha";
       "editor.minimap.enabled" = false;
+      "editor.fontFamily" = "JetBrainsMono Nerd Font";
       "explorer.confirmDelete" = false;
       "explorer.confirmDragAndDrop" = false;
       "files.autoSave" = "afterDelay";
