@@ -1,5 +1,4 @@
 { config, pkgs, ... }:
-### VARIABLES ###
 
 ### MAIN CONFIG ###
 {
@@ -19,23 +18,24 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   services.getty.autologinUser = "q3e4ir";
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   ### LOCALES ###
   system.stateVersion                        = "24.05";
   i18n.defaultLocale                         = "en_US.UTF-8";
   time.timeZone                              = "Europe/Kyiv";
 
-  i18n.extraLocaleSettings.LC_ADDRESS        = "uk_UA.UTF-8";
-  i18n.extraLocaleSettings.LC_IDENTIFICATION = "uk_UA.UTF-8";
-  i18n.extraLocaleSettings.LC_MEASUREMENT    = "uk_UA.UTF-8";
-  i18n.extraLocaleSettings.LC_MONETARY       = "uk_UA.UTF-8";
-  i18n.extraLocaleSettings.LC_NAME           = "uk_UA.UTF-8";
-  i18n.extraLocaleSettings.LC_NUMERIC        = "uk_UA.UTF-8";
-  i18n.extraLocaleSettings.LC_PAPER          = "uk_UA.UTF-8";
-  i18n.extraLocaleSettings.LC_TELEPHONE      = "uk_UA.UTF-8";
-  i18n.extraLocaleSettings.LC_TIME           = "uk_UA.UTF-8";
+  i18n.extraLocaleSettings.LC_ADDRESS        = "en_US.UTF-8";
+  i18n.extraLocaleSettings.LC_IDENTIFICATION = "en_US.UTF-8";
+  i18n.extraLocaleSettings.LC_MEASUREMENT    = "en_US.UTF-8";
+  i18n.extraLocaleSettings.LC_MONETARY       = "en_US.UTF-8";
+  i18n.extraLocaleSettings.LC_NAME           = "en_US.UTF-8";
+  i18n.extraLocaleSettings.LC_NUMERIC        = "en_US.UTF-8";
+  i18n.extraLocaleSettings.LC_PAPER          = "en_US.UTF-8";
+  i18n.extraLocaleSettings.LC_TELEPHONE      = "en_US.UTF-8";
+  i18n.extraLocaleSettings.LC_TIME           = "en_US.UTF-8";
 
   ### NETWORK ###
-  networking.hostName = "nixos"; 
+  networking.hostName = "q3e4ir"; 
   networking.networkmanager.enable = true;
   ## PULSEAUDIO ##
   hardware.pulseaudio.enable = true;
@@ -59,7 +59,7 @@
     unzip
     pulseaudio
     #applications
-    google-chrome
+    firefox
     kitty
     vscode
     #system
