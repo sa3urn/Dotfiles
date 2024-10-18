@@ -11,6 +11,8 @@
     ./waybar.nix
     ./hyprland.nix
     ./wofi.nix
+    ./gtk.nix
+    ./aliases.nix
   ];
 
   ### BOOT SETTINGS ###
@@ -23,16 +25,6 @@
   system.stateVersion                        = "24.05";
   i18n.defaultLocale                         = "en_US.UTF-8";
   time.timeZone                              = "Europe/Kyiv";
-
-  i18n.extraLocaleSettings.LC_ADDRESS        = "en_US.UTF-8";
-  i18n.extraLocaleSettings.LC_IDENTIFICATION = "en_US.UTF-8";
-  i18n.extraLocaleSettings.LC_MEASUREMENT    = "en_US.UTF-8";
-  i18n.extraLocaleSettings.LC_MONETARY       = "en_US.UTF-8";
-  i18n.extraLocaleSettings.LC_NAME           = "en_US.UTF-8";
-  i18n.extraLocaleSettings.LC_NUMERIC        = "en_US.UTF-8";
-  i18n.extraLocaleSettings.LC_PAPER          = "en_US.UTF-8";
-  i18n.extraLocaleSettings.LC_TELEPHONE      = "en_US.UTF-8";
-  i18n.extraLocaleSettings.LC_TIME           = "en_US.UTF-8";
 
   ### NETWORK ###
   networking.hostName = "q3e4ir"; 
@@ -81,45 +73,6 @@
   services.tumbler.enable    = true; 
   services.blueman.enable    = true;
 
-  ### ENVIRONMENT VARIABLES ###
-  environment.variables.SUDO_EDITOR    = "code";
-  environment.variables.SYSTEMD_EDITOR = "code";
-  environment.variables.EDITOR         = "code";
-  environment.variables.VISUAL         = "code";
-
-  ### ALIASES ###
-  programs.bash.shellAliases.sshlog     = ''
-  ssh-keygen -t rsa -b 4096 -P "" -f /home/q3e4ir/.ssh/id_rsa
-  cat ~/.ssh/id_rsa.pub; echo 'https://github.com/settings/ssh/new'
-  read -p 'apply ssh-key' apply
-  cd ~/dotfiles
-  git init
-  git remote rm origin
-  git remote add origin git@github.com:q3e4ir/dotfiles.git
-  '';
-
-  programs.bash.shellAliases.dotcommit  = ''
-  cd ~/dotfiles
-  git add .
-  git commit -m 'commit'
-  git push -u origin main
-  '';
-
-  programs.bash.shellAliases.nixreb     = ''
-  sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz home-manager
-  sudo nix-channel --update
-  sudo cp -r /home/q3e4ir/dotfiles/* /etc/nixos/
-  sudo nixos-rebuild switch
-  '';
-
-  programs.bash.shellAliases.c          = ''
-  clear
-  '';
-
-  programs.bash.shellAliases.vs-extlist = ''
-  codium --list-extensions | xargs -L 1 echo codium --install-extension
-  '';
-
   ### USERS ###
   
   users.users.q3e4ir.isNormalUser = true;
@@ -130,15 +83,5 @@
   ### HOME MANAGER ###
   home-manager.useGlobalPkgs = true;
   home-manager.backupFileExtension = "backup";
-  home-manager.users.q3e4ir = { pkgs, ... }: {
-    home.stateVersion = "24.05";
-
-    ### GTK ###
-    gtk.enable = true;
-    gtk.theme.name = "Juno";
-    gtk.theme.package = pkgs.juno-theme;
-    gtk.gtk3.extraConfig.Settings = ''gtk-application-prefer-dark-theme=1'';
-    gtk.gtk4.extraConfig.Settings = ''gtk-application-prefer-dark-theme=1'';
-    };
-
-  }
+  home-manager.users.q3e4ir.home.stateVersion = "24.05";
+}
