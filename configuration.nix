@@ -26,6 +26,16 @@
   i18n.defaultLocale                         = "en_US.UTF-8";
   time.timeZone                              = "Europe/Kyiv";
 
+  i18n.extraLocaleSettings.LC_ADDRESS        = "uk_UA.UTF-8";
+  i18n.extraLocaleSettings.LC_IDENTIFICATION = "uk_UA.UTF-8";
+  i18n.extraLocaleSettings.LC_MEASUREMENT    = "uk_UA.UTF-8";
+  i18n.extraLocaleSettings.LC_MONETARY       = "uk_UA.UTF-8";
+  i18n.extraLocaleSettings.LC_NAME           = "uk_UA.UTF-8";
+  i18n.extraLocaleSettings.LC_NUMERIC        = "uk_UA.UTF-8";
+  i18n.extraLocaleSettings.LC_PAPER          = "uk_UA.UTF-8";
+  i18n.extraLocaleSettings.LC_TELEPHONE      = "uk_UA.UTF-8";
+  i18n.extraLocaleSettings.LC_TIME           = "uk_UA.UTF-8";
+
   ### NETWORK ###
   networking.hostName = "q3e4ir"; 
   networking.networkmanager.enable = true;
@@ -50,6 +60,7 @@
     lxsession
     unzip
     pulseaudio
+    blueman
     #applications
     firefox
     kitty
@@ -67,6 +78,7 @@
   fonts.packages = with pkgs; [(nerdfonts.override {fonts = ["JetBrainsMono"];})];
 
   ### PROGRAMS,SERVICES ###
+  programs.hyprland.enable   = true;
   programs.thunar.enable     = true;
   services.gvfs.enable       = true;
   services.tumbler.enable    = true; 
