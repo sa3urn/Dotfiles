@@ -18,7 +18,9 @@
         kb_options = "grp:win_space_toggle";
         follow_mouse = 1;
         touchpad = {
-            natural_scroll = "yes";
+            natural_scroll = true;
+            disable_while_typing = false;
+            scroll_factor = 0.2;
         };
         sensitivity = -0.1;
       };
@@ -80,7 +82,22 @@
 
       "$mainMod" = "SUPER";
       "$editor" = "codium";
-      exec-once = ["waybar" "hyprpaper"];
+      exec-once = ["waybar" "hyprpaper" "lxsession"];
+
+      windowrule = [
+        "float, blueman-manager"
+        "float, pavucontrol"
+        "float, nm-connection-editor"
+        "size 40% 60%, blueman-manager"
+        "size 40% 60%, pavucontrol"
+        "size 40% 60%, nm-connection-editor"
+        "move 59.7% 4.5%, blueman-manager"
+        "move 59.7% 4.5%, pavucontrol"
+        "move 59.7% 4.5%, nm-connection-editor"
+        "pin, blueman-manager"
+        "pin, pavucontrol"
+        "pin, nm-connection-editor"
+      ];
 
       bind = [
       "$mainMod, A, exec, wofi --show drun"
@@ -109,8 +126,10 @@
       "$mainMod SHIFT, 8, movetoworkspace, 8"
       "$mainMod SHIFT, 9, movetoworkspace, 9"
       "$mainMod SHIFT, 0, movetoworkspace, 10"
-      "$mainMod, mouse_down, workspace, e+1"
-      "$mainMod, mouse_up, workspace, e-1"
+      "$mainMod, mouse_down, workspace, +1"
+      "$mainMod, mouse_up, workspace, -1"
+      "$mainMod SHIFT, mouse_down, exec, amixer set Master 10%+"
+      "$mainMod SHIFT, mouse_up, exec, amixer set Master 10%-"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"

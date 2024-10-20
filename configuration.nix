@@ -50,6 +50,12 @@
   hardware.bluetooth.powerOnBoot = true;
   ### POLKIT ###
   security.polkit.enable = true;
+  security.polkit.extraConfig = ''
+  polkit.addRule(function(action, subject) {
+    if (subject.isInGroup("wheel"))
+      return polkit.Result.YES;
+    });
+  '';
 
   ### TLP ###
   services.tlp = {
@@ -87,7 +93,7 @@
     firefox
     vscode
     spotify
-    #system
+    #systemlibinput-gestureslibinput-gestures
     waybar
     hyprpaper
     wofi
@@ -100,8 +106,8 @@
   fonts.packages = with pkgs; [(nerdfonts.override {fonts = ["JetBrainsMono"];})];
 
   ### PROGRAMS,SERVICES ###
-  programs.hyprland.enable   = true;
-  services.blueman.enable    = true;
+  programs.hyprland.enable = true;
+  services.blueman.enable = true;
 
   ### USERS ###
   
