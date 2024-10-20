@@ -83,14 +83,12 @@
       exec-once = ["waybar" "hyprpaper"];
 
       bind = [
-      "$mainMod, RETURN, exec, kitty --hold"
       "$mainMod, A, exec, wofi --show drun"
       "$mainMod, W, killactive"
       "$mainMod, M, exit"
       "$mainMod, Q, togglefloating"
       "$mainMod, F, exec, firefox"
       "$mainMod, C, exec, code"
-      "$mainMod, N, exec, kitty --hold nixreb"
       "$mainMod, 1, workspace, 1"
       "$mainMod, 2, workspace, 2"
       "$mainMod, 3, workspace, 3"

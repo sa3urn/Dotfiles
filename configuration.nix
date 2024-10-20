@@ -6,8 +6,6 @@
   imports = [
     <home-manager/nixos>
     ./hardware-configuration.nix 
-    ./vscode.nix
-    ./kitty.nix
     ./waybar.nix
     ./hyprland.nix
     ./wofi.nix
@@ -36,6 +34,11 @@
   i18n.extraLocaleSettings.LC_TELEPHONE      = "uk_UA.UTF-8";
   i18n.extraLocaleSettings.LC_TIME           = "uk_UA.UTF-8";
 
+  environment.variables.SUDO_EDITOR    = "code";
+  environment.variables.SYSTEMD_EDITOR = "code";
+  environment.variables.EDITOR         = "code";
+  environment.variables.VISUAL         = "code";
+
   ### NETWORK ###
   networking.hostName = "q3e4ir"; 
   networking.networkmanager.enable = true;
@@ -48,6 +51,25 @@
   ### POLKIT ###
   security.polkit.enable = true;
 
+  ### TLP ###
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+
+      CPU_MIN_PERF_ON_AC = 0;
+      CPU_MAX_PERF_ON_AC = 100;
+      CPU_MIN_PERF_ON_BAT = 0;
+      CPU_MAX_PERF_ON_BAT = 20;
+      START_CHARGE_THRESH_BAT0 = 40;
+      STOP_CHARGE_THRESH_BAT0 = 80;
+    };
+  };
+  
   ### PACkAGES ###
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.pulseaudio = true;
@@ -63,8 +85,8 @@
     blueman
     #applications
     firefox
-    kitty
     vscode
+    spotify
     #system
     waybar
     hyprpaper
@@ -79,9 +101,6 @@
 
   ### PROGRAMS,SERVICES ###
   programs.hyprland.enable   = true;
-  programs.thunar.enable     = true;
-  services.gvfs.enable       = true;
-  services.tumbler.enable    = true; 
   services.blueman.enable    = true;
 
   ### USERS ###
