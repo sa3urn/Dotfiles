@@ -29,6 +29,7 @@
   sudo nix-channel --update
   sudo cp -r /home/q3e4ir/dotfiles/* /etc/nixos/
   sudo nixos-rebuild switch --upgrade
+  sudo nix-collect-garbage --delete-older-than 1d
   '';
 
   programs.bash.shellAliases.c =

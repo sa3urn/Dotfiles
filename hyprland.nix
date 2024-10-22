@@ -5,8 +5,8 @@
     ### HYPRPAPER ###
     services.hyprpaper.enable = true;
     services.hyprpaper.settings = { 
-      preload = "/home/q3e4ir/wallpaper.png";
-      wallpaper = "eDP-1, /home/q3e4ir/wallpaper.png";
+      preload = "/home/q3e4ir/wallpaper.jpg";
+      wallpaper = "eDP-1, /home/q3e4ir/wallpaper.jpg";
     };
     ### HYPRLAND ###
     wayland.windowManager.hyprland.enable = true;
@@ -25,8 +25,8 @@
         sensitivity = -0.1;
       };
       general = {
-        gaps_in = 5;
-        gaps_out = 5;
+        gaps_in = 15;
+        gaps_out = 15;
         border_size = 2;
         "col.active_border" = "rgb(b4befe)";
         "col.inactive_border" = "rgb(1e1e2e)";
@@ -82,21 +82,22 @@
 
       "$mainMod" = "SUPER";
       "$editor" = "codium";
-      exec-once = ["waybar" "hyprpaper" "lxsession" "code" "firefox" "Spotify"];
+      exec-once = ["waybar" "hyprpaper" "lxsession" "firefox" "telegram-desktop""spotify" "code"];
 
       windowrule = [
-        "workspace 1, code"
+        "workspace 1, Code"
         "workspace 2, firefox"
         "workspace 3, Spotify"
+        "workspace 3, org.telegram.desktop"
         "float, blueman-manager"
         "float, pavucontrol"
         "float, nm-connection-editor"
-        "size 40% 60%, blueman-manager"
-        "size 40% 60%, pavucontrol"
-        "size 40% 60%, nm-connection-editor"
-        "move 59.7% 4.5%, blueman-manager"
-        "move 59.7% 4.5%, pavucontrol"
-        "move 59.7% 4.5%, nm-connection-editor"
+        "size 1000 600, blueman-manager"
+        "size 1000 600, pavucontrol"
+        "size 1000 600, nm-connection-editor"
+        "move 902 57, blueman-manager"
+        "move 902 57, pavucontrol"
+        "move 902 57, nm-connection-editor"
         "pin, blueman-manager"
         "pin, pavucontrol"
         "pin, nm-connection-editor"

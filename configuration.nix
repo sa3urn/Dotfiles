@@ -71,7 +71,7 @@
       CPU_MAX_PERF_ON_AC = 100;
       CPU_MIN_PERF_ON_BAT = 0;
       CPU_MAX_PERF_ON_BAT = 20;
-      START_CHARGE_THRESH_BAT0 = 40;
+      START_CHARGE_THRESH_BAT0 = 50;
       STOP_CHARGE_THRESH_BAT0 = 80;
     };
   };
@@ -79,9 +79,17 @@
   ### PACkAGES ###
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.pulseaudio = true;
+  documentation.nixos.enable = false;
+
+  programs.steam.enable = true;
+  programs.steam.remotePlay.openFirewall = true; 
+  programs.steam.dedicatedServer.openFirewall = true;
+  programs.steam.localNetworkGameTransfers.openFirewall = true;
+  programs.steam.gamescopeSession.enable = true;
 
   environment.systemPackages = with pkgs; [
-    #utils
+    bashmount
+    ntfs3g
     git
     polkit
     polkit_gnome
@@ -89,11 +97,10 @@
     unzip
     pulseaudio
     blueman
-    #applications
     firefox
     vscode
     spotify
-    #systemlibinput-gestureslibinput-gestures
+    telegram-desktop
     waybar
     hyprpaper
     wofi

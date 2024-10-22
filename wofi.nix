@@ -16,8 +16,8 @@
       print_command=true;
       insensitive=true;
       prompt="drun";
-      columns=3;
-      allow_images=false;
+      columns=2;
+      allow_images=true;
       no_actions = true;
     };
     programs.wofi.style = ''
@@ -28,9 +28,8 @@
     window {
       margin: 0px;
       padding: 10px;
-      border: 0.16em solid #b4befe;
+      border: 0.16em solid;
       border-radius: 0.1em;
-      background-color: #1f2335;
       animation: slideIn 0.5s ease-in-out both;
     }
     @keyframes slideIn {
@@ -47,7 +46,6 @@
       margin: 5px;
       padding: 10px;
       border: none;
-      background-color: #1f2335;
       animation: fadeIn 0.5s ease-in-out both;
     }
 
@@ -65,14 +63,12 @@
       margin: 5px;
       padding: 10px;
       border: none;
-      background-color: #1f2335;
     }
 
     #scroll {
       margin: 0px;
       padding: 10px;
       border: none;
-      background-color: #1f2335;
     }
 
     #input {
@@ -80,39 +76,25 @@
       padding: 10px;
       border: none;
       border-radius: 0.1em;
-      color: #c0caf5;
-      background-color: #1f2335;
       animation: fadeIn 0.5s ease-in-out both;
     }
 
     #input image {
         border: none;
-        color: #c53b53 ;
     }
 
     #text {
       margin: 5px;
       border: none;
-      color: #c0caf5;
       animation: fadeIn 0.5s ease-in-out both;
-    }
-
-    #entry {
-      background-color: #1f2335;
     }
 
     #entry arrow {
       border: none;
-      color: #3d59a1 ;
     }
 
     #entry:selected {
-      border: 0.11em solid #3d59a1 ;
-    }
-
-    #entry:selected #text {
-      color: ;
-      background-color: #1f2335;
+      border: 0.11em solid;
     }
     '';
   };
