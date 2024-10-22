@@ -9,12 +9,13 @@
         position = "top";
         spacing = 0;
         height = 25;
+
         modules-left = ["clock" "hyprland/workspaces"];
         modules-center = [];
         modules-right = ["network" "bluetooth" "pulseaudio" "pulseaudio/slider" "hyprland/language" "battery"];
-        
-        "hyprland/language" = {
-          format = "  {short}";
+
+        "clock" = {
+          format = "  {:%I:%M %p |   %a %d %b}";
           };
         "hyprland/workspaces" = {
           on-click = "activate";
@@ -23,7 +24,7 @@
             "1" = "󰘐 VScode";
             "2" = "󰈹 Firefox";
             "3" = " Spotify   Telegram";
-            "4" = "󱓻";
+            "4" = " Steam";
             "5" = "󱓻";
             "6" = "󱓻";
             "7" = "󱓻";
@@ -34,18 +35,10 @@
             "1" = [];
             "2" = [];
             "3" = [];
+            "4" = [];
            };
           };
-        "bluetooth" = {
-          format-on = "󰂯 {status}";
-          format-off = "󰂲";
-          format-connected = "󰂯 {device_alias}";
-          format-connected-battery = "󰂯 {device_alias} {device_battery_percentage}%";
-          on-click = "blueman-manager";
-          };
-        "clock" = {
-          format = "  {:%I:%M %p |   %a %d %b %Y}";
-          };
+
         "network" = {
           format-wifi = "⇣{bandwidthDownBytes}  | {icon} |  ⇡{bandwidthUpBytes}";
           format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
@@ -55,6 +48,14 @@
           interval = 5;
           nospacing = 1;
           tooltip = false;
+          };
+
+        "bluetooth" = {
+          format-on = "󰂯 {status}";
+          format-off = "󰂲";
+          format-connected = "󰂯 {device_alias}";
+          format-connected-battery = "󰂯 {device_alias} {device_battery_percentage}%";
+          on-click = "blueman-manager";
           };
         "pulseaudio" = {
           format = "{icon}  {volume}%";
@@ -73,68 +74,34 @@
             "max" = 150;
             "orientation" = "horizontal";
             };
-        "battery" = {
-          format = "{icon} {capacity}%";
-          format-icons = {
-            charging = ["󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅"];
-            default = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+          "hyprland/language" = {
+          format = "  {short}";
+          };
+
+          "battery" = {
+            format = "{icon} {capacity}%";
+            format-icons = {
+              charging = ["󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅"];
+              default = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
             };
-          interval = 1;
-          states = {
-            warning = 20;
-            critical = 10;
+            interval = 1;
+            tooltip = false;
+            states = {
+              warning = 20;
+              critical = 10;
             };
-          tooltip = false;
           };
         };
       };
 
     programs.waybar.style = ''
     * {
-        border: none;
-        min-height: 0;
         font-family: JetBrainsMono Nerd Font;
         font-size: 13px;
       }
       
       window#waybar {
         background-color: transparent;
-      }
-      
-      window#waybar.hidden {
-        opacity: 0.5;
-      }
-      
-      #workspaces {
-        background-color: transparent;
-      }
-      
-      #workspaces button {
-        all: initial;
-        min-width: 0;
-        box-shadow: inset 0 -3px transparent;
-        padding: 6px 18px;
-        margin: 6px 3px;
-
-        border-radius: 4px;
-        background-color: #1e1e2e;
-        color: #cdd6f4;
-      }
-      
-      #workspaces button.active {
-        color: #1e1e2e;
-        background-color: #cdd6f4;
-      }
-      
-      #workspaces button:hover {
-        box-shadow: inherit;
-        text-shadow: inherit;
-        color: #1e1e2e;
-        background-color: #cdd6f4;
-      }
-      
-      #workspaces button.urgent {
-        background-color: #f38ba8;
       }
       
       #window,
@@ -145,7 +112,7 @@
       #bluetooth,
       #language,
       #pulseaudio-slider,
-      #tray {
+      #workspaces button {
         border-radius: 4px;
         margin: 6px 3px;
         padding: 6px 18px;
@@ -153,17 +120,39 @@
          color: #cdd6f4;
       }
       
+      #pulseaudio:hover,
+      #network:hover,
+      #bluetooth:hover,
+      #pulseaudio-slider:hover,
+      #workspaces button:hover {
+        color: #1e1e2e;
+        background-color: #cdd6f4;
+      }
+
+     #pulseaudio-slider:hover {
+        color: #cdd6f4;
+        background-color: #1e1e2e;
+      }
+
+      #workspaces {
+        background-color: transparent;
+      }
+      
+      #workspaces button.active {
+        color: #1e1e2e;
+        background-color: #cdd6f4;
+      }
+      
+      
+      #workspaces button.urgent {
+        background-color: #f38ba8;
+      }
+      
       #battery {
         margin-right: 15px;
       }
       
       #memory {
-      }
-
-      @keyframes blink {
-        to {
-          color: #181825;
-        }
       }
       
       #battery.warning,
@@ -175,14 +164,6 @@
         animation-timing-function: linear;
         animation-iteration-count: infinite;
         animation-direction: alternate;
-      }
-      #window{
-      }
-      
-      #language{
-      }
-      
-      #backlight {
       }
 
       #pulseaudio-slider slider {
@@ -204,8 +185,6 @@
         margin-left: 15px;
       }
       
-      #bluetooth {
-      }
     '';
   };
 }

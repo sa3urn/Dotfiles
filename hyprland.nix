@@ -82,13 +82,14 @@
 
       "$mainMod" = "SUPER";
       "$editor" = "codium";
-      exec-once = ["waybar" "hyprpaper" "lxsession" "firefox" "telegram-desktop""spotify" "code"];
+      exec-once = ["waybar" "hyprpaper" "lxsession" "steam" "firefox" "telegram-desktop""spotify" "code"];
 
       windowrule = [
         "workspace 1, Code"
         "workspace 2, firefox"
         "workspace 3, Spotify"
         "workspace 3, org.telegram.desktop"
+        "workspace 4, steam"
         "float, blueman-manager"
         "float, pavucontrol"
         "float, nm-connection-editor"
