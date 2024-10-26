@@ -16,13 +16,15 @@
 
         "clock" = {
           format = "  {:%I:%M %p |   %a %d %b}";
+          locale = "uk_UA.UTF-8";
+          timezone = "Europe/Kyiv";
           };
         "hyprland/workspaces" = {
           on-click = "activate";
           format = "{icon}";
           format-icons = {
-            "1" = "󰘐 VScode";
-            "2" = "󰈹 Firefox";
+            "1" = " VScodium";
+            "2" = "󰈹 Floorp";
             "3" = " Spotify   Telegram";
             "4" = " Steam";
             "5" = "󱓻";
@@ -158,12 +160,7 @@
       #battery.warning,
       #battery.critical,
       #battery.urgent {
-        color: #181825;
-        animation-name: blink;
-        animation-duration: 0.5s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
+        color: #f38ba8;
       }
 
       #pulseaudio-slider slider {

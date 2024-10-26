@@ -11,6 +11,7 @@
     ./wofi.nix
     ./gtk.nix
     ./aliases.nix
+    ./vscodium.nix
   ];
 
   ### BOOT SETTINGS ###
@@ -18,26 +19,26 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   services.getty.autologinUser = "q3e4ir";
+  services.greetd = { 
+    enable = true;
+    settings = {
+      default_session = {
+        command = "Hyprland";
+        user = "q3e4ir";
+      };
+    };
+  };
+
+  fileSystems."/home/q3e4ir/.local/share/Steam/steamapps/common" = {
+    device = "/dev/nvme0n1p5";
+    fsType = "ext4";
+  };
+  
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   ### LOCALES ###
   system.stateVersion                        = "24.05";
   i18n.defaultLocale                         = "en_US.UTF-8";
   time.timeZone                              = "Europe/Kyiv";
-
-  i18n.extraLocaleSettings.LC_ADDRESS        = "uk_UA.UTF-8";
-  i18n.extraLocaleSettings.LC_IDENTIFICATION = "uk_UA.UTF-8";
-  i18n.extraLocaleSettings.LC_MEASUREMENT    = "uk_UA.UTF-8";
-  i18n.extraLocaleSettings.LC_MONETARY       = "uk_UA.UTF-8";
-  i18n.extraLocaleSettings.LC_NAME           = "uk_UA.UTF-8";
-  i18n.extraLocaleSettings.LC_NUMERIC        = "uk_UA.UTF-8";
-  i18n.extraLocaleSettings.LC_PAPER          = "uk_UA.UTF-8";
-  i18n.extraLocaleSettings.LC_TELEPHONE      = "uk_UA.UTF-8";
-  i18n.extraLocaleSettings.LC_TIME           = "uk_UA.UTF-8";
-
-  environment.variables.SUDO_EDITOR    = "code";
-  environment.variables.SYSTEMD_EDITOR = "code";
-  environment.variables.EDITOR         = "code";
-  environment.variables.VISUAL         = "code";
 
   ### NETWORK ###
   networking.hostName = "q3e4ir"; 
@@ -88,6 +89,7 @@
   programs.steam.gamescopeSession.enable = true;
 
   environment.systemPackages = with pkgs; [
+    gparted
     bashmount
     ntfs3g
     git
@@ -97,8 +99,8 @@
     unzip
     pulseaudio
     blueman
-    firefox
-    vscode
+    floorp
+    vscodium
     spotify
     telegram-desktop
     waybar

@@ -82,14 +82,18 @@
 
       "$mainMod" = "SUPER";
       "$editor" = "codium";
-      exec-once = ["waybar" "hyprpaper" "lxsession" "steam" "firefox" "telegram-desktop""spotify" "code"];
+      exec-once = ["waybar" "hyprpaper" "lxsession" "floorp" "telegram-desktop""spotify" "codium"];
 
       windowrule = [
-        "workspace 1, Code"
-        "workspace 2, firefox"
+        "workspace 1, VSCodium"
+        "workspace 2, floorp"
         "workspace 3, Spotify"
         "workspace 3, org.telegram.desktop"
         "workspace 4, steam"
+        "stayfocused, .blueman-applet-wrapped"
+        "stayfocused, pavucontrol"
+        "stayfocused, nm-connection-editor"
+        "stayfocused, blueman-manager"
         "float, blueman-manager"
         "float, pavucontrol"
         "float, nm-connection-editor"
@@ -109,7 +113,7 @@
       "$mainMod, W, killactive"
       "$mainMod, M, exit"
       "$mainMod, Q, togglefloating"
-      "$mainMod, F, exec, firefox"
+      "$mainMod, F, exec, floorp"
       "$mainMod, C, exec, code"
       "$mainMod, 1, workspace, 1"
       "$mainMod, 2, workspace, 2"
