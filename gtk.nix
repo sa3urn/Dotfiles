@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  home-manager.users.q3e4ir = { pkgs, ... }: {
+  home-manager.users.sa3urn = { pkgs, ... }: {
     gtk.enable = true;
     gtk.theme.name = "Tokyonight-Dark-B";
     gtk.iconTheme.name = "Tokyonight-Dark";
