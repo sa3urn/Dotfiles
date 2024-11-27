@@ -1,19 +1,21 @@
 { config, pkgs, ... }:
 
 {
-  home-manager.users.q3e4ir = { pkgs, ... }: {
+  home-manager.users.sa3urn = { pkgs, ... }: {
     ### HYPRPAPER ###
     services.hyprpaper.enable = true;
     services.hyprpaper.settings = { 
-      preload = "/home/q3e4ir/wallpaper.jpg";
-      wallpaper = "eDP-1, /home/q3e4ir/wallpaper.jpg";
+      preload = "/home/sa3urn/wallpaper.jpg";
+      wallpaper = "eDP-1, /home/sa3urn/wallpaper.jpg";
     };
     ### HYPRLAND ###
     wayland.windowManager.hyprland.enable = true;
     wayland.windowManager.hyprland.settings = {
       monitor = ",preferred,auto,1";
-      env = "XCURSOR_SIZE,24";
+      env = ["XCURSOR_SIZE,22" "XCURSOR_THEME,mochaDark"];
       input = {
+        repeat_delay = 300;
+        repeat_rate = 50;
         kb_layout = "us,ru";
         kb_options = "grp:win_space_toggle";
         follow_mouse = 1;
@@ -25,17 +27,15 @@
         sensitivity = -0.1;
       };
       general = {
-        gaps_in = 15;
-        gaps_out = 15;
-        border_size = 2;
-        "col.active_border" = "rgb(b4befe)";
-        "col.inactive_border" = "rgb(1e1e2e)";
+        gaps_in = 0;
+        gaps_out = 0;
+        border_size = 0;
         layout = "dwindle";
         allow_tearing = false;
       };
 
       decoration = {
-        rounding = 5;
+        rounding = 0;
         blur = {
           enabled = true;
           size = 3;
@@ -46,7 +46,7 @@
         shadow_range = 4;
         shadow_render_power = 3;
         "col.shadow" = "rgba(1a1a1aee)";
-        active_opacity = 0.97;
+        active_opacity = 0.95;
         inactive_opacity = 0.95;
       };
 
@@ -71,7 +71,9 @@
       };
 
       gestures = {
-        workspace_swipe = "off";
+        workspace_swipe = "on";
+        workspace_swipe_forever = "true";
+
       };
 
       misc = {
@@ -83,7 +85,9 @@
       "$mainMod" = "SUPER";
       "$editor" = "codium";
       exec-once = ["waybar" "hyprpaper" "lxsession" "floorp" "telegram-desktop""spotify" "codium"];
-
+      layerrule = [
+        "blur,waybar"
+        ];
       windowrule = [
         "workspace 1, VSCodium"
         "workspace 2, floorp"
@@ -112,9 +116,17 @@
       "$mainMod, A, exec, wofi --show drun"
       "$mainMod, W, killactive"
       "$mainMod, M, exit"
-      "$mainMod, Q, togglefloating"
-      "$mainMod, F, exec, floorp"
-      "$mainMod, C, exec, code"
+
+      "$mainMod, Left, movefocus, l"
+      "$mainMod, Right, movefocus, r"
+      "$mainMod, Up, movefocus, u"
+      "$mainMod, Down, movefocus, d"
+      
+      "$mainMod SHIFT, Left, movewindow, l"
+      "$mainMod SHIFT, Right, movewindow, r"
+      "$mainMod SHIFT, Up, movewindow, u"
+      "$mainMod SHIFT, Down, movewindow, d"
+
       "$mainMod, 1, workspace, 1"
       "$mainMod, 2, workspace, 2"
       "$mainMod, 3, workspace, 3"
@@ -140,9 +152,16 @@
       "$mainMod SHIFT, mouse_down, exec, amixer set Master 10%+"
       "$mainMod SHIFT, mouse_up, exec, amixer set Master 10%-"
       ];
+      binde = [
+        "$mainMod CTRL, Left, resizeactive, -50 0"
+        "$mainMod CTRL, Right, resizeactive, 50 0"
+        "$mainMod CTRL, Up, resizeactive, 0 -50"
+        "$mainMod CTRL, Down, resizeactive, 0 50"
+
+        "SHIFT, Up, exec, pamixer --increase 5"
+        "SHIFT, Down, exec, pamixer --decrease 5"
+      ];
       bindm = [
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
       ];
     };
   };
