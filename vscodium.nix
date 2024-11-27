@@ -5,7 +5,7 @@
   environment.variables.SYSTEMD_EDITOR = "codium";
   environment.variables.EDITOR         = "codium";
   environment.variables.VISUAL         = "codium";
-  home-manager.users.q3e4ir = { pkgs, ... }: {
+  home-manager.users.sa3urn = { pkgs, ... }: {
     programs.vscode.enable = true;
     programs.vscode.package = pkgs.vscodium;
     ### USER SETTINGS ###
