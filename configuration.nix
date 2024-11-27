@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 
-### MAIN CONFIG ###
 {
   ###  IMPORTS ###
   imports = [
@@ -18,30 +17,19 @@
   boot.loader.systemd-boot.enable      = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  services.getty.autologinUser = "q3e4ir";
-  services.greetd = { 
-    enable = true;
-    settings = {
-      default_session = {
-        command = "Hyprland";
-        user = "q3e4ir";
-      };
-    };
-  };
+  services.getty.autologinUser = "sa3urn";
+  services.greetd.enable = true;
+  services.greetd.settings.default_session.command = "Hyprland";
+  services.greetd.settings.default_session.user = "sa3urn";
 
-  fileSystems."/home/q3e4ir/.local/share/Steam/steamapps/common" = {
-    device = "/dev/nvme0n1p5";
-    fsType = "ext4";
-  };
-  
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   ### LOCALES ###
-  system.stateVersion                        = "24.05";
+  system.stateVersion                        = "unstable";
   i18n.defaultLocale                         = "en_US.UTF-8";
   time.timeZone                              = "Europe/Kyiv";
 
   ### NETWORK ###
-  networking.hostName = "q3e4ir"; 
+  networking.hostName = "sa3urn"; 
   networking.networkmanager.enable = true;
   ## PULSEAUDIO ##
   hardware.pulseaudio.enable = true;
@@ -102,6 +90,7 @@
     floorp
     vscodium
     spotify
+    kitty
     telegram-desktop
     waybar
     hyprpaper
@@ -109,24 +98,22 @@
     pavucontrol
     pamixer
     networkmanagerapplet
+    catppuccin-cursors.mochaDark
   ];
 
   ### FONTS ###
   fonts.packages = with pkgs; [(nerdfonts.override {fonts = ["JetBrainsMono"];})];
-
   ### PROGRAMS,SERVICES ###
   programs.hyprland.enable = true;
   services.blueman.enable = true;
 
   ### USERS ###
   
-  users.users.q3e4ir.isNormalUser = true;
-  users.users.q3e4ir.extraGroups = ["audio" "networkmanager" "wheel" ];
-  users.users.q3e4ir.name = "q3e4ir";
-  users.users.q3e4ir.home = "/home/q3e4ir";
-
+  users.users.sa3urn.isNormalUser = true;
+  users.users.sa3urn.extraGroups = ["audio" "networkmanager" "wheel" ];
+ 
   ### HOME MANAGER ###
   home-manager.useGlobalPkgs = true;
   home-manager.backupFileExtension = "backup";
-  home-manager.users.q3e4ir.home.stateVersion = "24.05";
+  home-manager.users.sa3urn.home.stateVersion = "24.05";
 }
