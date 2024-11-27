@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  home-manager.users.q3e4ir = { pkgs, ... }: {
+  home-manager.users.sa3urn = { pkgs, ... }: {
     programs.wofi.enable = true;
     programs.wofi.settings = {
       show="drun";
