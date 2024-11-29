@@ -352,7 +352,7 @@ in
         height = 38;
         modules-left = ["clock" "custom/separator" "hyprland/workspaces"];
         modules-center = ["custom/spotify-metadata"];
-        modules-right = ["hyprland/language" "custom/separator" "network" "custom/separator" "bluetooth" "custom/separator" "pulseaudio" "custom/separator" "battery"];
+        modules-right = ["hyprland/language" "custom/separator" "custom/search" "custom/separator" "network" "custom/separator" "bluetooth" "custom/separator" "pulseaudio" "custom/separator" "battery"];
 
         "clock" = {
           format = "{:%I:%M %p}";
@@ -381,6 +381,13 @@ in
           on-click = "kitty --class menu spotify_player";
           return-type = "json";
           exec = ''status=$(playerctl status); artist=$(playerctl metadata xesam:artist); title=$(playerctl metadata xesam:title); [[ -z $status ]] && exit; [[ $status == "Playing" ]] && echo "{\"class\": \"playing\", \"text\": \" $artist - $title\"}" && pkill -RTMIN+5 waybar && exit; [[ $status == "Paused" ]] && echo "{\"class\": \"paused\", \"text\": \" $artist - $title\"}" && pkill -RTMIN+5 waybar && exit'';
+        };
+
+        "custom/search"= {
+          format = "   ";
+          interval = "once";
+          on-click = "kitty --class menu sway-launcher-desktop";
+          tooltip  = false;
         };
 
         "hyprland/language" = {
