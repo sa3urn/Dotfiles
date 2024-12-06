@@ -2,6 +2,6 @@
 {
   imports = [
     /etc/nixos/hardware-configuration.nix 
-    /home/sa3urn/dotfiles/nixos-config.nix
+    /home/sa3urn/Dotfiles/nixos-config.nix
   ];
 }

@@ -31,6 +31,7 @@ let
     sway-launcher-desktop 
     xdg-utils
     playerctl
+    brightnessctl
     spotify-player
     python311
     wine
@@ -38,6 +39,7 @@ let
     linux-wallpaperengine
     htop
     killall
+    hyprshot
   ];
 
   ### WALLPAPER ###
@@ -183,21 +185,21 @@ in
     ssh-keygen -t rsa -b 4096 -P "" -f /home/sa3urn/.ssh/id_rsa
     cat ~/.ssh/id_rsa.pub; echo 'https://github.com/settings/ssh/new'
     read -p 'apply ssh-key' apply
-    cd ~/dotfiles
+    cd ~/Dotfiles
     git init
     git remote rm origin
-    git remote add origin git@github.com:sa3urn/dotfiles.git
+    git remote add origin git@github.com:sa3urn/Dotfiles.git
     '';
 
     dotcommit  = ''
-    cd ~/dotfiles
+    cd ~/Dotfiles
     git add .
     git commit -m 'commit'
     git push -u origin main
     '';
 
     nixreb = ''
-    sudo cp -r /home/${user-name}/dotfiles/configuration.nix /etc/nixos/
+    sudo cp -r /home/${user-name}/Dotfiles/configuration.nix /etc/nixos/
     sudo nixos-rebuild switch
     '';
 
@@ -315,6 +317,9 @@ in
         "SUPER, F, exec, firefox"
         "SUPER, Return, exec, kitty"
 
+        ", PRINT, exec, hyprshot -o /home/${user-name}/Screenshots -m region"
+        "SUPER, PRINT, exec, hyprshot -o /home/${user-name}/Screenshots -m output"
+
         "SUPER, Left, movefocus, l"
         "SUPER, Right, movefocus, r"
         "SUPER, Up, movefocus, u"
@@ -354,11 +359,17 @@ in
           "SUPER CTRL, Up, resizeactive, 0 -50"
           "SUPER CTRL, Down, resizeactive, 0 50"
 
-          "SHIFT, Up, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
-          "SHIFT, Down, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
-          "SHIFT, Right, exec, playerctl next"
-          "SHIFT, Left, exec, playerctl previous"
-          "SUPER, P, exec, playerctl play-pause"
+          ",XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
+          ",XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
+          ",XF86AudioMute, exec, pactl set-sink-volume @DEFAULT_SINK@ 0"
+          "SUPER, F86AudioRaiseVolume, exec, playerctl next"
+          "SUPER, XF86AudioLowerVolume, exec, playerctl previous"
+          "SUPER, XF86AudioMute, exec, playerctl play-pause"
+
+          ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
+          ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+
+
         ];
       };
     };
