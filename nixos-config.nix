@@ -116,6 +116,7 @@ in
 
   ### PACKAGES ###
   environment.systemPackages = mypkgs;
+  
 
   programs.hyprland.enable = true;
 
