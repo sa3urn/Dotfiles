@@ -48,7 +48,7 @@ let
   ];
 
   ### WALLPAPER ###
-  wpp-id = "3354186436";
+  wpp-id = "3387794230";
   wpp-fps = "1";
 
   ### COLORS ### 
