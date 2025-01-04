@@ -11,6 +11,7 @@ let
     "waybar"
     "firefox"
     "kitty --class Spotify spotify_player" "codium"
+    "steam --silent &"
   ];
 
   ###  PKGS ###
@@ -40,13 +41,17 @@ let
     htop
     killall
     hyprshot
+    prismlauncher
+    wpsoffice
+    telegram-desktop
+    qbittorrent
   ];
 
   ### WALLPAPER ###
-  wpp-id = "3334601245";
-  wpp-fps = "30";
+  wpp-id = "3354186436";
+  wpp-fps = "1";
 
-  ### COLORS ###
+  ### COLORS ### 
   color-waybar = "rgba(10, 10, 20, 0.8)";
   color-darkgrey = "#181926";
   color-cream = "#f5e0dc";
@@ -79,7 +84,6 @@ in
     isNormalUser = true;
     extraGroups  = ["audio" "networkmanager" "wheel" "input"];
   };
- 
   ### AUTOLOGIN ###
   services = {
     getty.autologinUser = user-name;
@@ -149,6 +153,16 @@ in
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
+    settings = {
+      General = {
+        Name = "Thinkpad L15";
+        ControllerMode = "dual";
+        FastConnectable = "true";
+        Experimental = "true";
+      };
+      Policy = {AutoEnable = "true";};
+      LE = {EnableAdvMonInterleaveScan = "true";};
+    };
   };
 
   ### TLP ###
@@ -296,6 +310,7 @@ in
           "workspace 1, VSCodium"
           "workspace 2, firefox"
           "workspace 3, Spotify"
+          "workspace 4, steam"
 
           "float, menu"
           "size 1000 500, menu"
@@ -308,6 +323,7 @@ in
         bind = [
         "SUPER, A, exec, hyprctl dispatch closewindow menu; kitty --class menu sway-launcher-desktop"
         "SUPER, W, killactive"
+        "SUPER, Q, fullscreen "
 
         "SUPER, S, exec, hyprctl dispatch closewindow menu; kitty --class menu pulsemixer"
         "SUPER, B, exec, hyprctl dispatch closewindow menu; kitty --class menu bluetui"
@@ -347,7 +363,7 @@ in
         "SUPER SHIFT, 5, movetoworkspace, 5"
         "SUPER SHIFT, 6, movetoworkspace, 6"
         "SUPER SHIFT, 7, movetoworkspace, 7"
-        "SUPER SHIFT, 8, movetoworkspace, 8"
+        "SUPER SHIFT, 8, movetoworkspace, 8" 
         "SUPER SHIFT, 9, movetoworkspace, 9"
         "SUPER SHIFT, 0, movetoworkspace, 10"
         "SUPER, mouse_down, workspace, +1"
@@ -362,8 +378,12 @@ in
           ",XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
           ",XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
           ",XF86AudioMute, exec, pactl set-sink-volume @DEFAULT_SINK@ 0"
-          "SUPER, F86AudioRaiseVolume, exec, playerctl next"
+          ",XF86AudioPlay, exec, playerctl play"
+          ",XF86AudioPause, exec, playerctl pause"
+          "SUPER, XF86AudioRaiseVolume, exec, playerctl next"
           "SUPER, XF86AudioLowerVolume, exec, playerctl previous"
+          ",XF86AudioNext, exec, playerctl next"
+          ",XF86AudioPrev, exec, playerctl previous"
           "SUPER, XF86AudioMute, exec, playerctl play-pause"
 
           ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
@@ -448,7 +468,7 @@ in
           format-disabled = "󰂲";
           format-connected = "󰂱";
           format-connected-battery = "󰂱 {device_battery_percentage}%";
-          on-click = "kitty --class menu bluetui";
+          on-click = "kitty --czlass menu bluetui";
         };
         "pulseaudio" = {
           format = "{icon}  {volume}%";
@@ -605,4 +625,6 @@ in
     localNetworkGameTransfers.openFirewall = true;
     gamescopeSession.enable = true;
   };
+  hardware.xone.enable = true;
+  hardware.steam-hardware.enable = true;
 }
