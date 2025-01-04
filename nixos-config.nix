@@ -214,7 +214,7 @@ in
 
     nixreb = ''
     sudo cp -r /home/${user-name}/Dotfiles/configuration.nix /etc/nixos/
-    sudo nixos-rebuild switch
+    sudo nixos-rebuild switch --flake /home/sa3urn/Dotfiles#default --impure
     '';
 
     delgar = ''
