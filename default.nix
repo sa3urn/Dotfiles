@@ -1,0 +1,26 @@
+{
+  imports = [
+    <home-manager/nixos>
+    /etc/nixos/hardware-configuration.nix 
+    /home/sa3urn/Dotfiles/configs/kitty.nix
+    /home/sa3urn/Dotfiles/configs/hyprland.nix
+    /home/sa3urn/Dotfiles/configs/waybar.nix
+    /home/sa3urn/Dotfiles/configs/bash.nix
+    /home/sa3urn/Dotfiles/configs/tlp.nix
+    /home/sa3urn/Dotfiles/configs/pipewire.nix
+    /home/sa3urn/Dotfiles/configs/bluetooth.nix
+    /home/sa3urn/Dotfiles/configs/steam.nix
+    /home/sa3urn/Dotfiles/configs/vscode.nix
+    /home/sa3urn/Dotfiles/configs/autologin.nix
+    /home/sa3urn/Dotfiles/configs/git.nix
+    /home/sa3urn/Dotfiles/configs/polkit.nix
+    /home/sa3urn/Dotfiles/configs/gtk.nix
+    /home/sa3urn/Dotfiles/configs/locales.nix
+    /home/sa3urn/Dotfiles/configs/network.nix
+    /home/sa3urn/Dotfiles/configs/pkgs.nix
+    /home/sa3urn/Dotfiles/configs/home-manager.nix
+    /home/sa3urn/Dotfiles/configs/nixos.nix
+    /home/sa3urn/Dotfiles/configs/users.nix
+    /home/sa3urn/Dotfiles/configs/bootloader.nix
+  ];
+}
