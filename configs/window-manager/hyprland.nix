@@ -26,8 +26,8 @@ in
         };
 
         general = {
-          gaps_in = 25;
-          gaps_out = 50;
+          gaps_in = 5;
+          gaps_out = 10;
           border_size = 0;
           layout = "dwindle";
           allow_tearing = false;
@@ -40,8 +40,8 @@ in
 
         decoration = {
           rounding = 0;
-          active_opacity = 0.95;
-          inactive_opacity = 0.95;
+          active_opacity = 0.97;
+          inactive_opacity = 0.97;
 
           blur = {
             enabled = true;
@@ -89,7 +89,6 @@ in
           "size 1000 500, menu"
           "move 460 530, menu"
           "pin, menu"
-          "opacity 0.9, menu"
           "stayfocused, menu"
         ];
       };

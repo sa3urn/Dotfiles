@@ -11,7 +11,7 @@ in
             position = "bottom";
             spacing = 0;
             height = 40;
-            width = 1200;
+            width = 1910;
             margin-bottom = 5;
             modules-left = ["custom/separator" "clock" "custom/separator" "hyprland/workspaces" "custom/separator" ];
             modules-center = ["custom/spotify-metadata"];
@@ -64,7 +64,7 @@ in
                 format-disabled = "󰂲";
                 format-connected = "󰂱";
                 format-connected-battery = "󰂱 {device_battery_percentage}%";
-                on-click = "kitty --czlass menu bluetui";
+                on-click = "kitty --class menu bluetui";
             };
             "pulseaudio" = {
                 format = "{icon}  {volume}%";
