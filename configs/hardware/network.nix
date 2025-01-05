@@ -1,9 +1,9 @@
 let
-  user-name = (import /home/sa3urn/Dotfiles/variables/system.nix).user-name;
+  var = (import /home/sa3urn/Dotfiles/variables/.).var;
 in
 {
   networking = {
-    hostName = user-name; 
+    hostName = var.system.user-name; 
     wireless.iwd.enable = true;
     networkmanager = {
       enable = true;

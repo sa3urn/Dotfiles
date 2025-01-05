@@ -1,16 +1,15 @@
 {pkgs, ...}:
 let
- font = (import /home/sa3urn/Dotfiles/variables/style.nix).font;
-  user-name = (import /home/sa3urn/Dotfiles/variables/system.nix).user-name;
+  var = (import /home/sa3urn/Dotfiles/variables/.).var;
 in
 {
-  home-manager.users.${user-name} = { pkgs, ... }: {
+  home-manager.users.${var.system.user-name} = { pkgs, ... }: {
     programs.vscode = {
       enable = true;
       package = pkgs.vscodium;
       userSettings = {
         "editor.minimap.enabled" = false;
-        "editor.fontFamily" = font;
+        "editor.fontFamily" = var.style.font;
         "explorer.confirmDelete" = false;
         "explorer.confirmDragAndDrop" = false;
         "files.autoSave" = "afterDelay";

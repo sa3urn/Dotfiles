@@ -1,9 +1,9 @@
 {pkgs, ... }:
 let
-  nix-version = (import /home/sa3urn/Dotfiles/variables/system.nix).nix-version;
+  var = (import /home/sa3urn/Dotfiles/variables/.).var;
 in 
 {
-  system.stateVersion                = nix-version;
+  system.stateVersion                = var.system.nix-version;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree         = true;
   documentation.nixos.enable         = false;

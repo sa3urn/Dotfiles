@@ -1,5 +1,5 @@
 let
-  user-name = (import /home/sa3urn/Dotfiles/variables/system.nix).user-name;
+  var = (import /home/sa3urn/Dotfiles/variables/.).var;
 in
 {
   hardware.bluetooth = {
@@ -7,7 +7,7 @@ in
     powerOnBoot = true;
     settings = {
       General = {
-        Name = user-name;
+        Name = var.system.user-name;
         ControllerMode = "dual";
         FastConnectable = "true";
         Experimental = "true";

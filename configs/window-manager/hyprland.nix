@@ -1,15 +1,10 @@
 {pkgs, ... }:
 let
-  colors = (import /home/sa3urn/Dotfiles/variables/style.nix).colors;
-  font = (import /home/sa3urn/Dotfiles/variables/style.nix).font;
-  user-name = (import /home/sa3urn/Dotfiles/variables/system.nix).user-name;
-  autostart = (import /home/sa3urn/Dotfiles/variables/autostart.nix).autostart;
-  binds = (import /home/sa3urn/Dotfiles/variables/binds.nix).binds;
-  
+  var = (import /home/sa3urn/Dotfiles/variables/.).var;
 in 
 {
   programs.hyprland.enable = true;
-  home-manager.users.${user-name} = { pkgs, ... }: {
+  home-manager.users.${var.system.user-name} = { pkgs, ... }: {
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
@@ -80,9 +75,9 @@ in
           disable_hyprland_logo = true;
         };
 
-        exec-once = autostart;
-        bind = binds.bind;
-        binde = binds.binde;
+        exec-once = var.autostart;
+        bind = var.binds.bind;
+        binde = var.binds.binde;
 
         windowrule = [
           "workspace 1, VSCodium"

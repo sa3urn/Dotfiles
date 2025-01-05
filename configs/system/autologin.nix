@@ -1,13 +1,13 @@
 let
-  user-name = (import /home/sa3urn/Dotfiles/variables/system.nix).user-name;
+  var = (import /home/sa3urn/Dotfiles/variables/.).var;
 in
 {
   services = {
-    getty.autologinUser = user-name;
+    getty.autologinUser = var.system.user-name;
     greetd = {
       enable = true;
       settings.default_session = {
-        user    = user-name;
+        user    = var.system.user-name;
         command = "Hyprland";
       };
     };

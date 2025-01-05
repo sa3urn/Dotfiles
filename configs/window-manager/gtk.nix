@@ -1,9 +1,9 @@
 {pkgs, ... }:
 let
-  user-name = (import /home/sa3urn/Dotfiles/variables/system.nix).user-name;
+  var = (import /home/sa3urn/Dotfiles/variables/.).var;
 in
 {
-  home-manager.users.${user-name} = { pkgs, ... }: {
+  home-manager.users.${var.system.user-name} = { pkgs, ... }: {
    gtk = {
       enable = true;
       cursorTheme.size = 22;

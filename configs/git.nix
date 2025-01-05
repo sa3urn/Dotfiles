@@ -1,13 +1,13 @@
 {pkgs, ... }:
 let
-  user-name = (import /home/sa3urn/Dotfiles/variables/system.nix).user-name;
+  var = (import /home/sa3urn/Dotfiles/variables/.).var;
 in
 {
-  home-manager.users.${user-name} = { pkgs, ... }: {
+  home-manager.users.${var.system.user-name} = { pkgs, ... }: {
     programs.git = {
       enable = true;
       userEmail = "durychyaroslav@gmail.com";
-      userName = user-name;
+      userName = var.system.user-name;
     };
   };
 }

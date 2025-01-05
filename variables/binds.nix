@@ -1,5 +1,5 @@
 let 
-  user-name = (import /home/sa3urn/Dotfiles/variables/system.nix).user-name;
+  var = (import /home/sa3urn/Dotfiles/variables/.).var;
 in
 {
   binds = {
@@ -16,8 +16,8 @@ in
       "SUPER, F, exec, firefox"
       "SUPER, Return, exec, kitty"
 
-      ", PRINT, exec, hyprshot -o /home/${user-name}/Screenshots -m region"
-      "SUPER, PRINT, exec, hyprshot -o /home/${user-name}/Screenshots -m output"
+      ", PRINT, exec, hyprshot -o /home/${var.system.user-name}/Screenshots -m region"
+      "SUPER, PRINT, exec, hyprshot -o /home/${var.system.user-name}/Screenshots -m output"
 
       "SUPER, Left, movefocus, l"
       "SUPER, Right, movefocus, r"

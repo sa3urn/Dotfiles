@@ -1,14 +1,9 @@
 {pkgs, ... }:
 let
-  colors = (import /home/sa3urn/Dotfiles/variables/style.nix).colors;
-  font = (import /home/sa3urn/Dotfiles/variables/style.nix).font;
-  user-name = (import /home/sa3urn/Dotfiles/variables/system.nix).user-name;
-  autostart = (import /home/sa3urn/Dotfiles/variables/autostart.nix).autostart;
-  binds = (import /home/sa3urn/Dotfiles/variables/binds.nix).binds;
-  
+  var = (import /home/sa3urn/Dotfiles/variables/.).var;
 in 
 {
-  home-manager.users.${user-name} = { pkgs, ... }: {
+  home-manager.users.${var.system.user-name} = { pkgs, ... }: {
     programs.waybar = {
         enable = true;
         settings.mainBar = {
@@ -94,13 +89,13 @@ in
         
         style = ''
         * {
-        font-family: ${font};
+        font-family: ${var.style.font};
         font-size: 13px;
-        color: ${colors.text};
+        color: ${var.style.color.text};
         }
             
         window#waybar {
-        background-color: ${colors.background};
+        background-color: ${var.style.color.background};
         }
             
         #window,

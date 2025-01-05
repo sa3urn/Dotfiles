@@ -1,10 +1,8 @@
 let
-  colors = (import /home/sa3urn/Dotfiles/variables/style.nix).colors;
-  font = (import /home/sa3urn/Dotfiles/variables/style.nix).font;
-  user-name = (import /home/sa3urn/Dotfiles/variables/system.nix).user-name;
+  var = (import /home/sa3urn/Dotfiles/variables/.).var;
 in 
 {
-  home-manager.users.${user-name} = { pkgs, ... }: {
+  home-manager.users.${var.system.user-name} = { pkgs, ... }: {
     programs.kitty = {
       enable = true;
       settings = {
@@ -12,46 +10,45 @@ in
         resize_debounce_time    = 0;
 
         font_size               = 12;
-        font_family             = font;
+        font_family             = var.style.font;
+        foreground              = var.style.color.foreground;
+        background              = var.style.color.background;
+        selection_foreground    = var.style.color.background;
+        selection_background    = var.style.color.text;
+        cursor                  = var.style.color.text;
+        cursor_text_color       = var.style.color.background;
+        url_color               = var.style.color.text;
+        active_border_color     = var.style.color.foreground;
+        inactive_border_color   = var.style.color.background;
+        bell_border_color       = var.style.color.yellow;
+        active_tab_foreground   = var.style.color.background;
+        active_tab_background   = var.style.color.magenta;
+        inactive_tab_foreground = var.style.color.foreground;
+        inactive_tab_background = var.style.color.background;
+        tab_bar_background      = var.style.color.background;
+        mark1_foreground        = var.style.color.background;
+        mark1_background        = var.style.color.foreground;
+        mark2_foreground        = var.style.color.background;
+        mark2_background        = var.style.color.magenta;
+        mark3_foreground        = var.style.color.background;
+        mark3_background        = var.style.color.blue;
 
-        foreground             = colors.foreground;
-        background             = colors.background;
-        selection_foreground   = colors.background;
-        selection_background   = colors.text;
-        cursor                  = colors.text;
-        cursor_text_color       = colors.background;
-        url_color               = colors.text;
-        active_border_color     = colors.foreground;
-        inactive_border_color   = colors.background;
-        bell_border_color       = colors.yellow;
-        active_tab_foreground   = colors.background;
-        active_tab_background   = colors.magenta;
-        inactive_tab_foreground = colors.foreground;
-        inactive_tab_background = colors.background;
-        tab_bar_background      = colors.background;
-        mark1_foreground        = colors.background;
-        mark1_background        = colors.foreground;
-        mark2_foreground        = colors.background;
-        mark2_background        = colors.magenta;
-        mark3_foreground        = colors.background;
-        mark3_background        = colors.blue;
-
-        color0                  = colors.black;
-        color8                  = colors.black;
-        color1                  = colors.red;
-        color9                  = colors.red;
-        color2                  = colors.green;
-        color10                 = colors.green;
-        color3                  = colors.yellow;
-        color11                 = colors.yellow;
-        color4                  = colors.blue;
-        color12                 = colors.blue;
-        color5                  = colors.magenta;
-        color13                 = colors.magenta;
-        color6                  = colors.cyan;
-        color14                 = colors.cyan;
-        color7                  = colors.text;
-        color15                 = colors.text;
+        color0                  = var.style.color.black;
+        color8                  = var.style.color.black;
+        color1                  = var.style.color.red;
+        color9                  = var.style.color.red;
+        color2                  = var.style.color.green;
+        color10                 = var.style.color.green;
+        color3                  = var.style.color.yellow;
+        color11                 = var.style.color.yellow;
+        color4                  = var.style.color.blue;
+        color12                 = var.style.color.blue;
+        color5                  = var.style.color.magenta;
+        color13                 = var.style.color.magenta;
+        color6                  = var.style.color.cyan;
+        color14                 = var.style.color.cyan;
+        color7                  = var.style.color.text;
+        color15                 = var.style.color.text;
       };
     };
   };

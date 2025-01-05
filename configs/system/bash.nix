@@ -1,10 +1,10 @@
 let
-   user-name = (import /home/sa3urn/Dotfiles/variables/system.nix).user-name;
+   var = (import /home/sa3urn/Dotfiles/variables/.).var;
 in
 {
   programs.bash.shellAliases = {
     sshlog = ''
-    ssh-keygen -t rsa -b 4096 -P "" -f /home/${user-name}/.ssh/id_rsa
+    ssh-keygen -t rsa -b 4096 -P "" -f /home/${var.system.user-name}/.ssh/id_rsa
     cat ~/.ssh/id_rsa.pub; echo 'https://github.com/settings/ssh/new'
     read -p 'apply ssh-key' apply
     cd ~/Dotfiles
@@ -21,7 +21,7 @@ in
     '';
 
     nixreb = ''
-    sudo cp -r /home/${user-name}/Dotfiles/configs/configuration.nix /etc/nixos/
+    sudo cp -r /home/${var.system.user-name}/Dotfiles/configs/configuration.nix /etc/nixos/
     sudo nixos-rebuild switch
     '';
 
