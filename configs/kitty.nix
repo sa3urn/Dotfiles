@@ -1,4 +1,3 @@
-{inputs, outputs, config, pkgs, ... }:
 let
   colors = (import /home/sa3urn/Dotfiles/variables/style.nix).colors;
   font = (import /home/sa3urn/Dotfiles/variables/style.nix).font;

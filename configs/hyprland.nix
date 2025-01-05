@@ -1,4 +1,4 @@
-{inputs, outputs, config, pkgs, ... }:
+{pkgs, ... }:
 let
   colors = (import /home/sa3urn/Dotfiles/variables/style.nix).colors;
   font = (import /home/sa3urn/Dotfiles/variables/style.nix).font;
@@ -8,6 +8,7 @@ let
   
 in 
 {
+  programs.hyprland.enable = true;
   home-manager.users.${user-name} = { pkgs, ... }: {
     wayland.windowManager.hyprland = {
       enable = true;
