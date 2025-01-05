@@ -1,13 +1,5 @@
 {inputs, outputs, config, pkgs, ... }:
 let
-  ### AUTOSTART ###
-  autostart = [
-    "hyprctl setcursor Bibata-Modern-Ice 22"
-    "waybar"
-    "firefox"
-    "kitty --class Spotify spotify_player" "codium"
-    "steam --silent &"
-  ];
 
   ###  PKGS ###
   mypkgs = with pkgs; [
@@ -49,6 +41,7 @@ in
   imports = [
     <home-manager/nixos>
     /home/sa3urn/Dotfiles/configs/kitty.nix
+    /home/sa3urn/Dotfiles/configs/hyprland.nix
   ];
   
   ### BOOT LOADER ###
