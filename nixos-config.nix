@@ -6,7 +6,6 @@ let
 
   ### AUTOSTART ###
   autostart = [
-    "linux-wallpaperengine --fps ${wpp-fps} --silent --screen-root eDP-1 ${wpp-id}"
     "hyprctl setcursor Bibata-Modern-Ice 22"
     "waybar"
     "firefox"
@@ -24,7 +23,6 @@ let
     firefox
     vscodium
     kitty
-    tg
     pulsemixer
     bibata-cursors
     impala
@@ -33,11 +31,9 @@ let
     xdg-utils
     playerctl
     brightnessctl
-    spotify-player
     python311
     wine
     wine64
-    linux-wallpaperengine
     htop
     killall
     hyprshot
@@ -46,10 +42,6 @@ let
     telegram-desktop
     qbittorrent
   ];
-
-  ### WALLPAPER ###
-  wpp-id = "3387794230";
-  wpp-fps = "1";
 
   ### COLORS ### 
   color-waybar = "rgba(10, 10, 20, 0.8)";
@@ -214,7 +206,7 @@ in
 
     nixreb = ''
     sudo cp -r /home/${user-name}/Dotfiles/configuration.nix /etc/nixos/
-    sudo nixos-rebuild switch --flake /home/sa3urn/Dotfiles#default --impure
+    sudo nixos-rebuild switch
     '';
 
     delgar = ''
