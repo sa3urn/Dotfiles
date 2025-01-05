@@ -22,5 +22,6 @@
     /home/sa3urn/Dotfiles/configs/system/nixos.nix
     /home/sa3urn/Dotfiles/configs/system/users.nix
     /home/sa3urn/Dotfiles/configs/hardware/bootloader.nix
+    /home/sa3urn/Dotfiles/configs/window-manager/hyprpaper.nix
   ];
 }
