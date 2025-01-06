@@ -22,7 +22,7 @@ in
 
     nixreb = ''
     sudo cp -r /home/${var.system.user-name}/Dotfiles/configs/configuration.nix /etc/nixos/
-    sudo nixos-rebuild switch
+    sudo nixos-rebuild switch --impure --flake /home/${var.system.user-name}/Dotfiles#default --cores 8
     '';
 
     delgar = ''
