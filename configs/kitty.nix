@@ -8,6 +8,7 @@ in
       settings = {
         confirm_os_window_close = 0;
         resize_debounce_time    = 0;
+        enable_cursor_trail = "yes";
 
         font_size               = 12;
         font_family             = var.style.font;
