@@ -87,7 +87,7 @@ in
 
           "float, menu"
           "size 1000 500, menu"
-          "move 460 530, menu"
+          "move 875 528, menu"
           "pin, menu"
           "stayfocused, menu"
         ];
