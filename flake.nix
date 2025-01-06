@@ -1,10 +1,16 @@
-# Nixos configuraion
 {
-  pkgs,
-  inputs,
-  ...
-}: {
-  environment.systemPackages = with pkgs; [
-    inputs.ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
-  ];
+  description = "Nixos config flake";
+
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+  };
+
+  outputs = { self, nixpkgs, ... }@inputs: {
+    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./default.nix
+      ];
+    };
+  };
 }

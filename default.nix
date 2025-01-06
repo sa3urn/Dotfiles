@@ -18,7 +18,6 @@
     /home/sa3urn/Dotfiles/configs/system/locales.nix
     /home/sa3urn/Dotfiles/configs/hardware/network.nix
     /home/sa3urn/Dotfiles/configs/pkgs.nix
-    /home/sa3urn/Dotfiles/configs/ayugram.nix
     /home/sa3urn/Dotfiles/configs/system/home-manager.nix
     /home/sa3urn/Dotfiles/configs/system/nixos.nix
     /home/sa3urn/Dotfiles/configs/system/users.nix
