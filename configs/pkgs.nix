@@ -25,8 +25,8 @@
     hyprshot
     prismlauncher
     wpsoffice
-    telegram-desktop
     hyprpaper
+    inputs.ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
   ];
 
   fonts.packages = with pkgs; [(nerdfonts.override {fonts = ["JetBrainsMono"];})];
