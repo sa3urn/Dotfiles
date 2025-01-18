@@ -4,6 +4,6 @@ in
 {
   users.users.${var.system.user-name} = {
     isNormalUser = true;
-    extraGroups  = ["audio" "networkmanager" "wheel" "input"];
+    extraGroups  = ["audio" "networkmanager" "wheel" "input" "adbusers"];
   };
 }

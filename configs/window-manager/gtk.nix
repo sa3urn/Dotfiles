@@ -11,4 +11,8 @@ in
       cursorTheme.package = pkgs.bibata-cursors;
     };
   };
+  qt = {
+    enable = true;
+    platformTheme = "gtk2";
+  };
 }
