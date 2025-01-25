@@ -22,21 +22,26 @@
     wine64
     htop
     killall
+    qbittorrent
     hyprshot
     prismlauncher
     wpsoffice
     hyprpaper
     kdenlive
     obsidian
+    appimage-run
+    deskreen
+    xdg-desktop-portal-hyprland
     libsForQt5.qt5.qtwebengine
     inputs.ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
   ];
 
+  xdg.portal.wlr.enable = true;
   programs.obs-studio.enable = true;
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback
   ];
-  boot.extraModprobeConfig = ''
+  boot.extraModprobeConfig = ''`
     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
   '';
   programs.obs-studio.plugins = with pkgs.obs-studio-plugins; [

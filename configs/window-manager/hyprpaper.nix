@@ -11,8 +11,8 @@ in
         ipc = "on";
         splash = false;
         splash_offset = 2.0;
-        preload = ["/home/${var.system.user-name}/Dotfiles/wallpaper.png"];
-        wallpaper = ["eDP-1,/home/${var.system.user-name}/Dotfiles/wallpaper.png"];
+        preload = ["/home/${var.system.user-name}/Dotfiles/wallpaper.jpg"];
+        wallpaper = ["eDP-1,/home/${var.system.user-name}/Dotfiles/wallpaper.jpg"];
       };
     };
   };

@@ -11,8 +11,8 @@ in
             position = "bottom";
             spacing = 0;
             height = 40;
-            width = 1910;
-            margin-bottom = 5;
+            width = 1920;
+            margin-bottom = 0;
             modules-left = ["custom/separator" "clock" "custom/separator" "hyprland/workspaces" "custom/separator" ];
             modules-center = ["custom/spotify-metadata"];
             modules-right = ["custom/separator" "hyprland/language" "custom/separator"  "network" "custom/separator" "bluetooth" "custom/separator" "pulseaudio" "custom/separator" "battery" "custom/separator"];
