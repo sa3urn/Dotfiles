@@ -9,12 +9,12 @@ in
       package = pkgs.vscodium;
       userSettings = {
         "editor.minimap.enabled" = false;
-        "editor.fontFamily" = var.style.font;
+        "editor.fontFamily" = "Monocraft Nerd Font";
         "explorer.confirmDelete" = false;
         "explorer.confirmDragAndDrop" = false;
         "files.autoSave" = "afterDelay";
         "window.menuBarVisibility" = "toggle";
-        "workbench.colorTheme" = "Catppuccin Mocha";
+        #"workbench.colorTheme" = "Catppuccin Mocha";
         "workbench.iconTheme" = "catppuccin-mocha";
         "window.customTitleBarVisibility" = "auto";
         "workbench.statusBar.visible" = false;
@@ -25,7 +25,6 @@ in
       extensions = with pkgs.vscode-extensions; [
         catppuccin.catppuccin-vsc-icons
         alefragnani.project-manager
-        catppuccin.catppuccin-vsc
         jnoortheen.nix-ide
         ms-python.python
       ];
