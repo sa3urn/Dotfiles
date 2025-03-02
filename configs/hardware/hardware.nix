@@ -1,5 +1,5 @@
 let
-  var = (import /home/sa3urn/Dotfiles/variables/.).var;
+  var = (import /home/sa3urn/Desktop/Dotfiles/variables/.).var;
 in
 {
   boot.loader = {

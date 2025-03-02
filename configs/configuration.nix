@@ -1,3 +1,3 @@
 {
-  imports = [/home/sa3urn/Dotfiles/.];
+  imports = [/home/sa3urn/Desktop/Dotfiles/.];
 }

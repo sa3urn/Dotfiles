@@ -1,6 +1,6 @@
 {pkgs, outputs, inputs, ... }:
 let
-  var = (import /home/sa3urn/Dotfiles/variables/.).var;
+  var = (import /home/sa3urn/Desktop/Dotfiles/variables/.).var;
 in 
 {
   hardware.graphics.enable = true;
