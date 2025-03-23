@@ -7,14 +7,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self,nixpkgs,home-manager,plasma-manager, ... }@inputs: {
+  outputs = { self,nixpkgs,home-manager, ... }@inputs: {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
