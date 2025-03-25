@@ -33,6 +33,8 @@ in
     clear
     '';
 
-    hyprreb = ''hyprctl dispatch exit'';
+    wmreb = ''
+    swaymsg exit
+    '';
   };
 }

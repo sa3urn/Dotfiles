@@ -28,6 +28,48 @@ in
         fonts = {
           names = [ "Monocraft Nerd Font" ];
         };
+        colors = {
+          focused =
+          {
+            background = "#000000";
+            border = "#323232";
+            childBorder = "#323232";
+            indicator = "#000000";
+            text = "#ffffff";
+          };
+          unfocused =
+          {
+            background = "#000000";
+            border = "#323232";
+            childBorder = "#323232";
+            indicator = "#000000";
+            text = "#ffffff";
+          };
+          focusedInactive =
+          {
+            background = "#000000";
+            border = "#323232";
+            childBorder = "#323232";
+            indicator = "#000000";
+            text = "#ffffff";
+          };
+          placeholder =
+          {
+            background = "#000000";
+            border = "#323232";
+            childBorder = "#323232";
+            indicator = "#000000";
+            text = "#ffffff";
+          };
+          urgent =
+          {
+            background = "#000000";
+            border = "#323232";
+            childBorder = "#323232";
+            indicator = "#000000";
+            text = "#ffffff";
+          };
+        };
         gaps = {
           bottom = 10;
           horizontal = 10;

@@ -14,19 +14,16 @@ in
         "explorer.confirmDragAndDrop" = false;
         "files.autoSave" = "afterDelay";
         "window.menuBarVisibility" = "toggle";
-        #"workbench.colorTheme" = "Catppuccin Mocha";
+        "workbench.colorTheme" = "Black++ Grey Matter";
         "workbench.iconTheme" = "catppuccin-mocha";
         "window.customTitleBarVisibility" = "auto";
         "workbench.statusBar.visible" = false;
         "workbench.activityBar.location" = "bottom";
         "terminal.integrated.fontFamily" = "monospace";
-        "AREPL.showFooter" = false;
       };
       extensions = with pkgs.vscode-extensions; [
         catppuccin.catppuccin-vsc-icons
-        alefragnani.project-manager
         jnoortheen.nix-ide
-        ms-python.python
       ];
     };
   };
