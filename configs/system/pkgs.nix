@@ -7,27 +7,15 @@
     python311
     wine
     wine64
-    qbittorrent
     prismlauncher
-    wpsoffice
     obsidian
-    gnome.gnome-software
-    appimage-run
     discord
     telegram-desktop
-    droidcam
-    linuxKernel.packages.linux_hardened.v4l2loopback
-    tor-browser
-    bottles
-    blender
-    nimble
-  ];
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    oxygen
-    kate
-    okular
-    elisa
-
+    qbittorrent
+    playerctl
+    networkmanagerapplet
+    swaybg
+    dmenu
   ];
   services.flatpak.enable = true;
   fonts.packages = with pkgs; [monocraft];

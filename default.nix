@@ -12,7 +12,8 @@
     /home/sa3urn/Desktop/Dotfiles/configs/system/home-manager.nix
     /home/sa3urn/Desktop/Dotfiles/configs/system/nixos.nix
     /home/sa3urn/Desktop/Dotfiles/configs/system/users.nix
-    /home/sa3urn/Desktop/Dotfiles/configs/applications/obs.nix
-    /home/sa3urn/Desktop/Dotfiles/configs/system/kde.nix
+    /home/sa3urn/Desktop/Dotfiles/configs/system/sway.nix
+    /home/sa3urn/Desktop/Dotfiles/configs/system/waybar.nix
+
   ];
 }
