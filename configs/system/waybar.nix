@@ -10,7 +10,7 @@ in
             layer = "top";
             position = "bottom";
             spacing = 0;
-            height = 30;
+            height = 35;
             width = 1920;
             margin-bottom = 0;
             modules-left = ["custom/separator" "clock" "sway/workspaces" "pulseaudio" "custom/separator" "sway/language" "custom/separator" ];

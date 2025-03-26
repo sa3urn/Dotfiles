@@ -3,8 +3,6 @@
   environment.systemPackages = with pkgs; [
     git
     firefox
-    vscodium
-    python311
     wine
     wine64
     prismlauncher
