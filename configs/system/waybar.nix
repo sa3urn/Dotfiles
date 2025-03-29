@@ -13,12 +13,12 @@ in
             height = 35;
             width = 1920;
             margin-bottom = 0;
-            modules-left = ["custom/separator" "clock" "sway/workspaces" "pulseaudio" "custom/separator" "sway/language" "custom/separator" ];
+            modules-left = ["custom/separator" "clock" "custom/separator" "sway/workspaces" "custom/separator" "pulseaudio" "custom/separator" "sway/language" "custom/separator" ];
             modules-center = [];
             modules-right = ["tray" "custom/separator"  "network" "custom/separator" "bluetooth" "custom/separator" "battery" "custom/separator"];
             
             "clock" = {
-                format = "time: {:%H:%M:%S | date: %A, %B %d}";
+                format = " time: {:%H:%M:%S   date: %A, %B %d} ";
                 timezone = "Europe/Kyiv";
                 interval = 5;
             };
@@ -29,30 +29,30 @@ in
             };
             "sway/workspaces" = {
                 on-click = "activate";
-                format = "| workspace_number: {name} |";
+                format = "workspace_number: {name}";
                 current-only = true;
             };  
             "sway/language" = {
-                format = "language: {long}";
+                format = " language: {short} ";
             };
             "network" = {
-                format-wifi = "network: {essid} | signal_strength: {signalStrength}%";
-                format-ethernet = "network: ethernet";
-                format-disconnected = "network: disconnected";
+                format-wifi = " network: {essid}   signal_strength: {signalStrength}% ";
+                format-ethernet = " network: ethernet ";
+                format-disconnected = " network: disconnected ";
                 interval = 5;
                 nospacing = 1;
                 tooltip = false;
             };
             "bluetooth" = {
-                format-on = "bluetooth: on";
-                format-off = "bluetooth: off";
-                format-disabled = "bluetooth: disabled";
-                format-connected = "bluetooth: {device_alias}";
-                format-connected-battery = "bluetooth: {device_alias} | bluetooth_battery: {device_battery_percentage}%";
+                format-on = " bluetooth: on ";
+                format-off = " bluetooth: off ";
+                format-disabled = " bluetooth: disabled ";
+                format-connected = " bluetooth: {device_alias} ";
+                format-connected-battery = " bluetooth: {device_alias}   bluetooth_battery: {device_battery_percentage}% ";
             };
             "pulseaudio" = {
-                format = "volume: {volume}%";
-                format-muted = "volume: muted";
+                format = " volume: {volume}% ";
+                format-muted = " volume: muted ";
                 smooth-scrolling-threshold=0;
                 scroll-step = 0;
                 tooltip = false;
@@ -63,11 +63,12 @@ in
                 show-passive-items = true;
             };
             "battery" = {
-                format = "battery: {capacity}%";
-                format-charging = "battery [charging]: {capacity}%";
+                format = " battery: {capacity}% ";
+                format-charging = " battery [charging]: {capacity}% ";
                 interval = 5;
                 tooltip = false;
             };
+
         };
         
         style = ''
@@ -77,17 +78,43 @@ in
         }
             
         window#waybar {
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.8);
         }
             
         #workspaces button {
         border: none;
         background: transparent;
+        color:rgb(255,100,0);
+        text-shadow: none;
+        box-shadow: none
+
         }   
         #workspaces button:hover {
         border: none;
         background: transparent;
-        }   
+        color:rgb(255,100,0);
+        text-shadow: none;
+        box-shadow: none
+        }
+
+        #bluetooth {
+        color:rgb(0,0,255)
+        }
+        #network {
+        color:rgb(255,255,0)
+        }
+        #battery {
+        color:rgb(255,0,0)
+        }
+        #clock{
+        color:rgb(0,255,0)
+        }
+        #language{
+        color:rgb(255,0,255)
+        }
+        #pulseaudio{
+        color:rgb(0,255,150)
+        } 
         '';
     };
   };

@@ -21,7 +21,6 @@ in
         defaultWorkspace = "workspace number 1";
         
         startup = [
-          {command = "nm-applet";}
           {command = "swaybg --image ~/wallpaper.png --mode fill";}
         ];
         fonts = {

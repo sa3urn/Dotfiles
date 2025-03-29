@@ -14,6 +14,13 @@
     networkmanagerapplet
     swaybg
     dmenu
+    kitty
+    blueman
+    pavucontrol
+    gnumake
+    gcc
+    cmake
+    eclipses.eclipse-cpp 
   ];
   services.flatpak.enable = true;
   fonts.packages = with pkgs; [monocraft];

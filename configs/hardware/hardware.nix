@@ -25,7 +25,6 @@ in
       allowedUDPPortRanges = [{from = 4000; to = 4007;} {from = 7000; to = 8010;}];
     };
   };
-  programs.nm-applet.indicator = false;
   
   hardware.bluetooth = {
     enable = true;

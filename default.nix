@@ -14,6 +14,7 @@
     /home/sa3urn/Desktop/Dotfiles/configs/system/users.nix
     /home/sa3urn/Desktop/Dotfiles/configs/system/sway.nix
     /home/sa3urn/Desktop/Dotfiles/configs/system/waybar.nix
+    /home/sa3urn/Desktop/Dotfiles/configs/system/gtk.nix
 
   ];
 }
