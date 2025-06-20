@@ -17,9 +17,11 @@ in
         "workbench.colorTheme" = "Black++ Grey Matter";
         "workbench.iconTheme" = "catppuccin-mocha";
         "window.customTitleBarVisibility" = "auto";
-        "workbench.statusBar.visible" = false;
+        "workbench.statusBar.visible" = true;
         "workbench.activityBar.location" = "bottom";
         "terminal.integrated.fontFamily" = "monospace";
+        "cmake.options.statusBarVisibility" = "visible";
+        "clangd.path" = "/home/sa3urn/.config/VSCodium/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/19.1.2/clangd_19.1.2/bin/clangd";
       };
       extensions = with pkgs.vscode-extensions; [
         catppuccin.catppuccin-vsc-icons

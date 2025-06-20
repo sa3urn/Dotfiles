@@ -36,5 +36,12 @@ in
     wmreb = ''
     swaymsg exit
     '';
+
+    mk = ''
+    gcc -o main main.c
+    '';
+    rn = ''
+    ./main
+    '';
   };
 }

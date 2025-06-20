@@ -17,10 +17,10 @@
     kitty
     blueman
     pavucontrol
-    gnumake
-    gcc
-    cmake
-    eclipses.eclipse-cpp 
+    obs-studio
+    vlc
+    audacity
+    gnome-multi-writer
   ];
   services.flatpak.enable = true;
   fonts.packages = with pkgs; [monocraft];
